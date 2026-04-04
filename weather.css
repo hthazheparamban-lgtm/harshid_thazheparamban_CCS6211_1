@@ -1,0 +1,213 @@
+
+:root {
+    --color-primary: #4c6bc7;
+    --color-secondary: #03ffe6;
+    --color-tertiary: #ffa856;
+    --color-primary-darker: #1862b1;
+    --color-secondary-darker: #09b5b8;
+    --color-tertiary-darker: #be670a;
+    --color-primary-opacity: #5e80c53a;
+    --color-secondary-opacity: #03a7ff31;
+    --color-tertiary-opacity: #9010172d;
+    --gradient-primary: linear-gradient(to top left, #92c6ff, #293fad);
+    --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+  
+  html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    color: #444;
+    line-height: 1.9;
+    background-color: #f3f3f3;
+  }
+  
+  /* GENERAL ELEMENTS Like sections and Buttons*/
+  .section {
+    padding: 10rem 3rem;
+    border-top: 1px solid #ddd;
+   
+  
+    transition: transform 1s, opacity 1s;
+  }
+   
+  .section--hidden {
+    opacity: 0;
+    transform: translateY(8rem);
+  }
+  
+  .section__title {
+    max-width: 80rem;
+    margin: 2rem auto 8rem auto;
+  }
+  
+  .section__description {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+  
+  .section__header {
+    font-size: 3.5rem;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+  
+  .btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    font-size: 1.6rem;
+    font-family: inherit;
+    font-weight: 500;
+    border: none;
+    padding: 1.25rem 4.5rem;
+    border-radius: 10rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: var(--color-primary-darker);
+  }
+  
+  .btn--text {
+    display: inline-block;
+    background: none;
+    font-size: 1.7rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: var(--color-primary);
+    border: none;
+   
+    padding-bottom: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+   
+  }
+  /* Small animation for the arrow icon*/
+  .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.btn--scroll-to:hover .arrow {
+  transform: translateY(8px);
+}
+  
+  p {
+    color: #666;
+  }
+
+  
+  img {
+    transition: filter 0.5s;
+  }
+  
+  .lazy-img {
+    filter: blur(10px);
+    transition: filter 0.3s;
+  }
+  
+  
+  /* NAVIGATION */
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 9rem;
+    width: 100%;
+    padding: 0 6rem;
+    z-index: 100;
+  }
+  
+  /* nav and stickly class at the same time */
+  .nav.sticky {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .nav__logo {
+    height: 5.5rem;
+    transition: all 0.3s;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+  
+  
+ 
+  
+  /* HEADER */
+  .header {
+    padding: 0 4rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header__title {
+    flex: 1;
+    max-width: 119rem;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    row-gap: 3rem;
+    align-content: center;
+    justify-content: center;
+    
+  
+    align-items: start;
+    justify-items: start;
+  }
+  
+  h1 {
+    font-size: 4.5rem;
+    line-height: 1.35;
+  }
+  
+  h4 {
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+  
+  .header__img {
+    width: 100%;
+    height: 250px;
+    grid-column: 2 / 3;
+    grid-row: 1 / span 4;
+    transform: translateY(-6rem);
+    border-radius: 10px;
+  }
+  
+  .highlight {
+    position: relative;
+  }
+  
+  /*Giving the background color for the headline which is highlighted*/
+  .highlight::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.7;
+      /* making the sliced effect on the text bg color */
+    transform: scale(1.07, 1.05) skewX(-15deg);
+    background-image: var(--gradient-primary);
+  }
+ 
