@@ -1,102 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
 
 :root {
-    --color-primary: #4c6bc7;
-    --color-secondary: #03ffe6;
-    --color-tertiary: #ffa856;
-    --color-primary-darker: #1862b1;
-    --color-secondary-darker: #09b5b8;
-    --color-tertiary-darker: #be670a;
-    --color-primary-opacity: #5e80c53a;
-    --color-secondary-opacity: #03a7ff31;
-    --color-tertiary-opacity: #9010172d;
-    --gradient-primary: linear-gradient(to top left, #92c6ff, #293fad);
-    --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
-  }
-  
-  html {
-    font-size: 62.5%;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: "Libre Baskerville", serif;
-    font-weight: 400;
-    color: #444;
-    line-height: 1.9;
-    background-color: #f3f3f3;
-  }
-  
-  /* GENERAL ELEMENTS Like sections and Buttons*/
-  .section {
-    padding: 10rem 3rem;
-    border-top: 1px solid #ddd;
-   
-  
-    transition: transform 1s, opacity 1s;
-  }
-   
-  .section--hidden {
-    opacity: 0;
-    transform: translateY(8rem);
-  }
-  
-  .section__title {
-    max-width: 80rem;
-    margin: 2rem auto 8rem auto;
-  }
-  
-  .section__description {
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-  }
-  
-  .section__header {
-    font-size: 3.5rem;
-    line-height: 1.3;
-    font-weight: 500;
-  }
-  
-  .btn {
-    display: inline-block;
-    background-color: var(--color-primary);
-    font-size: 1.6rem;
-    font-family: inherit;
-    font-weight: 500;
-    border: none;
-    padding: 1.25rem 4.5rem;
-    border-radius: 10rem;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  .btn:hover {
-    background-color: var(--color-primary-darker);
-  }
-  
-  .btn--text {
-    display: inline-block;
-    background: none;
-    font-size: 1.7rem;
-    font-family: inherit;
-    font-weight: 500;
-    color: var(--color-primary);
-    border: none;
-    padding-bottom: 2px;
-    cursor: pointer;
-    transition: all 0.3s;
-   
-  }
-  /* Small animation for the arrow icon*/
-  .arrow {
+  --color-primary: #4c6bc7;
+  --color-secondary: #03ffe6;
+  --color-tertiary: #ffa856;
+  --color-primary-darker: #1862b1;
+  --color-secondary-darker: #09b5b8;
+  --color-tertiary-darker: #be670a;
+  --color-primary-opacity: #5e80c53a;
+  --color-secondary-opacity: #03a7ff31;
+  --color-tertiary-opacity: #9010172d;
+  --gradient-primary: linear-gradient(to top left, #92c6ff, #293fad);
+  --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  color: #444;
+  line-height: 1.9;
+  background-color: #f3f3f3;
+}
+
+/* GENERAL ELEMENTS */
+.section {
+  padding: 10rem 3rem;
+  border-top: 1px solid #ddd;
+  transition: transform 1s, opacity 1s;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.section__title {
+  max-width: 80rem;
+  margin: 2rem auto 8rem auto;
+}
+
+.section__description {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.section__header {
+  font-size: 3.5rem;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--color-primary);
+  font-size: 1.6rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  padding: 1.25rem 4.5rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--color-primary-darker);
+}
+
+.btn--text {
+  display: inline-block;
+  background: none;
+  font-size: 1.7rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: var(--color-primary);
+  border: none;
+  padding-bottom: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.arrow {
   display: inline-block;
   transition: transform 0.3s ease;
 }
@@ -104,247 +103,214 @@
 .btn--scroll-to:hover .arrow {
   transform: translateY(8px);
 }
-  
-  p {
-    color: #666;
-  }
 
-  
-  img {
-    transition: filter 0.5s;
-  }
-  /* lazy loading */
-  .lazy-img {
-    filter: blur(10px);
-    transition: filter 0.3s;
-  } 
-  
-  
-  /* NAVIGATION */
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 9rem;
-    width: 100%;
-    padding: 0 6rem;
-    z-index: 100;
-  }
-  
-  /* nav and stickly class at the same time */
-  .nav.sticky {
-    position: fixed;
-    background-color: rgba(255, 255, 255, 0.95);
-  }
-  
-  .nav__logo {
-    height: 5.5rem;
-    transition: all 0.3s;
-    font-size: 2rem;
-    font-weight: 600;
-  }
-  
-  
-  
- 
-
-  /* HEADER */
-  .header {
-    padding: 0 4rem;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .header__title {
-    flex: 1;
-    max-width: 119rem;
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    row-gap: 3rem;
-    align-content: center;
-    justify-content: center;
-    
-  
-    align-items: start;
-    justify-items: start;
-  }
-  
-  h1 {
-    font-size: 4.5rem;
-    line-height: 1.35;
-  }
-  
-  h4 {
-    font-size: 1.7rem;
-    font-weight: 500;
-  }
-  
-  .header__img {
-    width: 100%;
-    height: 250px;
-    grid-column: 2 / 3;
-    grid-row: 1 / span 4;
-    transform: translateY(-6rem);
-    border-radius: 10px;
-  }
-  
-  .highlight {
-    position: relative;
-  }
-  
-  /*Giving the background color for the headline which is highlighted*/
-  .highlight::after {
-    display: block;
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    opacity: 0.7;
-      /* making the sliced effect on the text bg color */
-    transform: scale(1.07, 1.05) skewX(-15deg);
-    background-image: var(--gradient-primary);
-  }
- /* Weather Section */
-.section--weather {
-  padding: 60px 20px;
-  text-align: center;
+p {
+  color: #666;
 }
 
-/* Grid for cards: 3 per row, 2 rows for 6 cards */
-.weather-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-  gap: 20px;
-  max-width: 1200px;
-  margin: 40px auto;
+img {
+  transition: filter 0.5s;
 }
 
-/* Weather Card - Taller playing card style */
-.weather-card {
-  background-color: #ffffff;          /* White background */
-  color: #333;                        /* Dark text */
-  padding: 30px 20px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  transition: 0.3s;
-  height: 300px;                       /* Taller like a playing card */
+/* lazy loading */
+.lazy-img {
+  filter: blur(10px);
+  transition: filter 0.3s;
+}
+
+/* NAVIGATION */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 9rem;
+  width: 100%;
+  padding: 0 6rem;
+  z-index: 100;
+}
+
+.nav.sticky {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.nav__logo {
+  height: 5.5rem;
+  transition: all 0.3s;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* HEADER */
+.header {
+  padding: 0 4rem;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-}
-/* when hover on the card it animate */
-.weather-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+  align-items: center;
 }
 
-/* Card text styling */
+.header__title {
+  flex: 1;
+  max-width: 119rem;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  row-gap: 3rem;
+  align-content: center;
+  justify-content: center;
+  align-items: start;
+  justify-items: start;
+}
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 1.35;
+}
+
+h4 {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+
+.header__img {
+  width: 100%;
+  height: 250px;
+  grid-column: 2 / 3;
+  grid-row: 1 / span 4;
+  transform: translateY(-6rem);
+  border-radius: 10px;
+}
+
+.highlight {
+  position: relative;
+}
+
+.highlight::after {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+  transform: scale(1.07, 1.05) skewX(-15deg);
+  background-image: var(--gradient-primary);
+}
+
+/* WEATHER SECTION */
+.section--weather {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.section__description {
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  
+  margin-bottom: 1rem;
+}
+
+.section__header {
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+}
+
+/* WEATHER GRID */
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* WEATHER CARD */
+.weather-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  height: 300px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #4c6bc7; /* fallback */
+  color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.weather-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+}
+
+/* Video background */
+.weather-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+
+}
+
+/* WEATHER INFO overlay */
+/* WEATHER INFO overlay */
+.weather-info {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 20px;
+  pointer-events: none;
+  color: #fff; /* <-- all text inside will be white */
+}
+
+/* Individual elements (optional, overrides) */
 .weather-city {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 15px;
+    font-family: "Abel", sans-serif;
+  font-size: 2.3rem;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  /* color: #fff;  <-- optional, already inherited */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 .weather-temp {
-  font-size: 1.8rem;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-size: 6rem;
+  font-weight: 300;
+  margin-bottom: 0.1rem;
+ color: #fff; 
+   font-family: "Abel", sans-serif;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 .weather-desc {
-  font-size: 1rem;
-  opacity: 0.7;
+  font-size: 1.8rem;
+  font-weight: 300;
+   color: #fff; 
+  text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
-/* RESPONSIVE: 2 cards per row for tablets */
-@media (max-width: 900px) {
+/* Responsive */
+@media (max-width: 1024px) {
   .weather-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 15px;
+    padding: 0 20px;
   }
 }
 
-/* RESPONSIVE: 1 card per row for mobile */
-@media (max-width: 500px) {
+/* Mobile (small screens) */
+@media (max-width: 600px) {
   .weather-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 card per row */
+    gap: 10px;
+    padding: 0 10px;
   }
-}
-/* Weather Card Animations */
-
-/* Sun */
-.weather-sun {
-  width: 50px;
-  height: 50px;
-  background: radial-gradient(circle, #FFD700 60%, #FFA500 100%);
-  border-radius: 50%;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  animation: sunMove 6s linear infinite alternate;
-  z-index: 2;
-}
-
-@keyframes sunMove {
-  0% { transform: translateX(0) translateY(0); }
-  50% { transform: translateX(30px) translateY(-10px); }
-  100% { transform: translateX(0) translateY(0); }
-}
-
-/* Cloud */
-.weather-cloud {
-  width: 80px;
-  height: 50px;
-  background: #eee;
-  border-radius: 40px;
-  position: absolute;
-  top: 20px;
-  animation: cloudMove 8s linear infinite;
-}
-
-.weather-cloud::before,
-.weather-cloud::after {
-  content: '';
-  position: absolute;
-  background: #eee;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  top: -25px;
-}
-
-.weather-cloud::before { left: 10px; }
-.weather-cloud::after { right: 10px; }
-
-@keyframes cloudMove {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(15px); }
-  100% { transform: translateX(0); }
-}
-
-/* Rain */
-.weather-rain {
-  position: absolute;
-  width: 2px;
-  height: 15px;
-  background: #00f;
-  bottom: 0;
-  left: 50%;
-  animation: rainFall 0.5s linear infinite;
-}
-
-@keyframes rainFall {
-  0% { transform: translateY(0); opacity: 0.5; }
-  100% { transform: translateY(20px); opacity: 0; }
-}
-
-/* Card Relative Container */
-.weather-card {
-  position: relative; /* Needed for absolute animations inside */
-  overflow: hidden;   /* Prevent icons from spilling out */
 }

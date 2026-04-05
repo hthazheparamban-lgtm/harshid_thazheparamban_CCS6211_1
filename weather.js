@@ -9,7 +9,7 @@ btnScrollTo.addEventListener('click', function (e) {
   weatherSection.scrollIntoView({ behavior: 'smooth' });
 });
 
-// Weather cards configuration
+// Weather cards configuration (6 cards)
 const weatherCards = [
   { card: document.querySelector('.weather-card--ny'), lat: 40.7128, lon: -74.0060 }, // New York
   { card: document.querySelector('.weather-card--london'), lat: 51.5074, lon: -0.1278 }, // London
@@ -19,21 +19,19 @@ const weatherCards = [
   { card: document.querySelector('.weather-card--cairo'), lat: 30.0444, lon: 31.2357 } // Cairo
 ];
 
-// Map Open-Meteo weathercode to description + animation class
+// Map Open-Meteo weathercode to description + video filename
 const weatherMap = {
-  0: { desc: 'Clear', anim: 'sun' },
-  1: { desc: 'Mainly Clear', anim: 'sun' },
-  2: { desc: 'Partly Cloudy', anim: 'cloud' },
-  3: { desc: 'Overcast', anim: 'cloud' },
-  61: { desc: 'Rain', anim: 'rain' },
-  63: { desc: 'Rain', anim: 'rain' },
-  65: { desc: 'Heavy Rain', anim: 'rain' },
-  80: { desc: 'Showers', anim: 'rain' },
-  81: { desc: 'Showers', anim: 'rain' },
-  82: { desc: 'Thunderstorm', anim: 'rain' },
-  71: { desc: 'Snow', anim: 'snow' },
-  73: { desc: 'Snow', anim: 'snow' },
-  75: { desc: 'Heavy Snow', anim: 'snow' },
+  0: { desc: 'Clear', video: 'clear.mp4' },
+  1: { desc: 'Mainly Clear', video: 'sunny.mp4' },
+  2: { desc: 'Partly Cloudy', video: 'partly-cloudy.mp4' },
+  3: { desc: 'Overcast', video: 'cloudy.mp4' },
+  61: { desc: 'Rain', video: 'rain.mp4' },
+  63: { desc: 'Rain', video: 'rain.mp4' },
+  65: { desc: 'Heavy Rain', video: 'rain.mp4' },
+  80: { desc: 'Showers', video: 'rain.mp4' },
+  81: { desc: 'Showers', video: 'rain.mp4' },
+  82: { desc: 'Thunderstorm', video: 'rain.mp4' },
+  71: { desc: 'Snow', video: 'snow.mp4' }, // Keep only one snowy type
 };
 
 // Fetch weather for each card and update
@@ -43,20 +41,19 @@ weatherCards.forEach(({ card, lat, lon }) => {
     .then(data => {
       const temp = data.current_weather.temperature;
       const code = data.current_weather.weathercode;
-      const info = weatherMap[code] || { desc: 'Unknown', anim: 'sun' };
+      const info = weatherMap[code] || { desc: 'Unknown', video: 'sunny.mp4' };
 
       // Update card text
       card.querySelector('.weather-temp').textContent = `${temp} °C`;
       card.querySelector('.weather-desc').textContent = info.desc;
 
-      // Show the correct animation
-      const sun = card.querySelector('.weather-sun');
-      const cloud = card.querySelector('.weather-cloud');
-      const rain = card.querySelector('.weather-rain');
-
-      sun && (sun.style.display = info.anim === 'sun' ? 'block' : 'none');
-      cloud && (cloud.style.display = info.anim === 'cloud' ? 'block' : 'none');
-      rain && (rain.style.display = info.anim === 'rain' ? 'block' : 'none');
+      // Update video source
+      const video = card.querySelector('.weather-video');
+      if (video) {
+        video.src = `videos/${info.video}`; // Folder 'videos' contains sunny.mp4, cloudy.mp4, rain.mp4, snow.mp4
+        video.load();
+        video.play();
+      }
     })
     .catch(err => console.error('Weather API error:', err));
 });

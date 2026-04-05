@@ -1,121 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="weather.css" />
+  <script defer src="weather.js"></script>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <div class="nav__logo">Weather App</div>
+    </nav>
+    <div class="header__title">
+      <h1>
+        Real <span class="highlight">Time</span><br>
+        Weather <span class="highlight">Insight</span>
+      </h1>
+      <h4>Explore live weather conditions from cities worldwide with an intuitive and responsive dashboard.</h4>
+      <button class="btn--text btn--scroll-to">Weather Report <span class="arrow">↓</span></button>
+      <img src="image/hero_img.png" class="header__img" alt="Weather-app">
+    </div>
+  </header>
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="shortcut icon" type="image/png" href="img/icon.png" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <section class="section section--weather" id="weather-section">
+    <div class="section__title">
+      <h2 class="section__description">Weather Overview</h2>
+      <h3 class="section__header">Live weather from different regions</h3>
+    </div>
 
-
-
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="weather.css" />
-    <title>Bankist | When Banking meets Minimalist</title>
-    <script defer src="weather.js"></script>
-  </head>
-  <body>
-    <header class="header">
-      <nav class="nav">
-       <div alt="Bankist logo"
-       class="nav__logo"
-       id="logo">Weather App</div>
-        
-      
-      </nav>
-
-      <div class="header__title">
-        
-        <h1 >
-     Real
-      
-          <span class="highlight">Time</span>
-          <br />Weather
-          <span class="highlight">Insight</span>
-        </h1>
-        <h4>Explore live weather conditions from cities worldwide with an intuitive and responsive dashboard. 
-Get instant access to temperature, wind speed, and atmospheric conditions—all in one place.
-</h4>
-
-       <button class="btn--text btn--scroll-to">
-  Weather Report <span class="arrow">↓</span>
-</button>
-        <img
-          src="image/hero_img.png"
-          class="header__img"
-          alt="Weather-app"
-        />
+    <div class="weather-grid">
+      <!-- New York -->
+      <div class="weather-card weather-card--ny">
+        <video class="weather-video" autoplay muted loop playsinline></video>
+        <div class="weather-info">
+          <h4 class="weather-city">New York</h4>
+          <p class="weather-temp">-- °C</p>
+          <p class="weather-desc">Sunny</p>
+        </div>
       </div>
-    </header>
-    <section class="section section--weather" id="weather-section">
-  <div class="section__title">
-    <h2 class="section__description">Weather Overview</h2>
-    <h3 class="section__header">Live weather from different regions</h3>
-  </div>
 
-  <div class="weather-grid">
+      <!-- London -->
+      <div class="weather-card weather-card--london">
+        <video class="weather-video" autoplay muted loop playsinline></video>
+        <div class="weather-info">
+          <h4 class="weather-city">London</h4>
+          <p class="weather-temp">-- °C</p>
+          <p class="weather-desc">Cloudy</p>
+        </div>
+      </div>
 
-    <!-- Weather Card 1 - Sunny -->
-    <div class="weather-card weather-card--ny">
-      <div class="weather-sun"></div>
-      <h4 class="weather-city">New York</h4>
-      <p class="weather-temp">-- °C</p>
-      <p class="weather-desc">Sunny</p>
+      <!-- Tokyo -->
+      <div class="weather-card weather-card--tokyo">
+        <video class="weather-video" autoplay muted loop playsinline></video>
+        <div class="weather-info">
+          <h4 class="weather-city">Tokyo</h4>
+          <p class="weather-temp">-- °C</p>
+          <p class="weather-desc">Rainy</p>
+        </div>
+      </div>
+
+      <!-- Paris -->
+      <div class="weather-card weather-card--paris">
+        <video class="weather-video" autoplay muted loop playsinline></video>
+        <div class="weather-info">
+          <h4 class="weather-city">Paris</h4>
+          <p class="weather-temp">-- °C</p>
+          <p class="weather-desc">Sunny</p>
+        </div>
+      </div>
+
+      <!-- Sydney -->
+      <div class="weather-card weather-card--sydney">
+        <video class="weather-video" autoplay muted loop playsinline></video>
+        <div class="weather-info">
+          <h4 class="weather-city">Sydney</h4>
+          <p class="weather-temp">-- °C</p>
+          <p class="weather-desc">Cloudy</p>
+        </div>
+      </div>
+
+      <!-- Cairo -->
+      <div class="weather-card weather-card--cairo">
+        <video class="weather-video" autoplay muted loop playsinline></video>
+        <div class="weather-info">
+          <h4 class="weather-city">Cairo</h4>
+          <p class="weather-temp">-- °C</p>
+          <p class="weather-desc">Rainy</p>
+        </div>
+      </div>
     </div>
-
-    <!-- Weather Card 2 - Cloudy -->
-    <div class="weather-card weather-card--london">
-      <div class="weather-cloud"></div>
-      <h4 class="weather-city">London</h4>
-      <p class="weather-temp">-- °C</p>
-      <p class="weather-desc">Cloudy</p>
-    </div>
-
-    <!-- Weather Card 3 - Rainy -->
-    <div class="weather-card weather-card--tokyo">
-      <div class="weather-cloud"></div>
-      <div class="weather-rain"></div>
-      <h4 class="weather-city">Tokyo</h4>
-      <p class="weather-temp">-- °C</p>
-      <p class="weather-desc">Rainy</p>
-    </div>
-
-    <!-- Weather Card 4 - Sunny -->
-    <div class="weather-card weather-card--paris">
-      <div class="weather-sun"></div>
-      <h4 class="weather-city">Paris</h4>
-      <p class="weather-temp">-- °C</p>
-      <p class="weather-desc">Sunny</p>
-    </div>
-
-    <!-- Weather Card 5 - Cloudy -->
-    <div class="weather-card weather-card--sydney">
-      <div class="weather-cloud"></div>
-      <h4 class="weather-city">Sydney</h4>
-      <p class="weather-temp">-- °C</p>
-      <p class="weather-desc">Cloudy</p>
-    </div>
-
-    <!-- Weather Card 6 - Rainy -->
-    <div class="weather-card weather-card--cairo">
-      <div class="weather-cloud"></div>
-      <div class="weather-rain"></div>
-      <h4 class="weather-city">Cairo</h4>
-      <p class="weather-temp">-- °C</p>
-      <p class="weather-desc">Rainy</p>
-    </div>
-     
-  </div>
-</section>
-      
-    </body>
-    </html>
-   
+  </section>
+</body>
+</html>
