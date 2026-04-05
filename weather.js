@@ -57,3 +57,26 @@ weatherCards.forEach(({ card, lat, lon }) => {
     })
     .catch(err => console.error('Weather API error:', err));
 });
+document.addEventListener("DOMContentLoaded", function() {
+  const lazyClimateElements = document.querySelectorAll(".lazy-climate");
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+
+        if (el.tagName === "IMG" || el.tagName === "VIDEO") {
+          el.src = el.dataset.src;        // set the real src
+          el.classList.add("loaded");     // add fade-in effect
+
+          // If video, autoplay
+          if(el.tagName === "VIDEO") el.play();
+        }
+
+        observer.unobserve(el);           // stop observing once loaded
+      }
+    });
+  }, { threshold: 0.1 });
+
+  lazyClimateElements.forEach(el => observer.observe(el));
+});

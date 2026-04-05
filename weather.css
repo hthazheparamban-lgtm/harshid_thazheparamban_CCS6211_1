@@ -232,7 +232,7 @@ h4 {
   position: relative;
   overflow: hidden;
   border-radius: 15px;
-  height: 300px;
+  height: 250px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -313,4 +313,148 @@ h4 {
     gap: 10px;
     padding: 0 10px;
   }
+}
+/* CLIMATE ZONES SECTION */
+.climate-section {
+  display: flex;
+  flex-direction: column; /* stack title, paragraph, and grid vertically */
+  align-items: center;    /* horizontal centering */
+  justify-content: flex-start;
+  text-align: center;     /* centers all text inside */
+  padding: 5rem 2rem;
+}
+
+.climate-section h2 {
+  font-family: 'Abel', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.climate-section h3 {
+  font-family: 'Abel', sans-serif;
+  font-size: 1.8rem;
+  max-width: 800px; 
+  margin: 0 auto 3rem auto; /* centers paragraph */
+}
+
+/* CLIMATE GRID */
+/* for. centering all text */
+#climate-text-fix
+#climate-text-fix .section--climate .section__title,
+.section--climate .section__description,
+.section--climate .section__header {
+  text-align: center;
+}
+
+.climate-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: stretch; /* make all cards same width & height */
+  align-items: stretch;   /* make all cards same height */
+}
+
+/* INDIVIDUAL CARD */
+.climate-card {
+  position: relative;  
+  overflow: hidden;   
+  background-color: #4c6bc7;
+  color: #fff;
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.climate-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+}
+
+.climate-title {
+ 
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.climate-desc {
+  
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: black;
+}
+/* VIDEO BACKGROUND */
+.climate-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  
+}
+
+/* KEEP TEXT ABOVE VIDEO */
+.climate-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual climate card themes */
+@media (max-width: 1200px) {
+  .weather-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .climate-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+}
+
+/* Tablets screen  */
+@media (max-width: 1024px) {
+  .weather-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .climate-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
+
+/* MOBILE  FOR CLIMATE GRID */
+@media (max-width: 600px) {
+  .climate-grid {
+    grid-template-columns: 1fr; /* single column for mobile */
+    gap: 10px;
+    padding: 0 10px; /* optional padding */
+  }
+
+  .climate-card {
+    padding: 1.5rem 1rem; /* reduce card padding for mobile */
+    min-height: auto;      /* allow height to adjust */
+  }
+}
+.lazy-climate {
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.5s, filter 0.5s;
+}
+
+.lazy-climate.loaded {
+  opacity: 1;
+  filter: blur(0);
 }
