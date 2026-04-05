@@ -90,7 +90,6 @@
     font-weight: 500;
     color: var(--color-primary);
     border: none;
-   
     padding-bottom: 2px;
     cursor: pointer;
     transition: all 0.3s;
@@ -114,11 +113,11 @@
   img {
     transition: filter 0.5s;
   }
-  
+  /* lazy loading */
   .lazy-img {
     filter: blur(10px);
     transition: filter 0.3s;
-  }
+  } 
   
   
   /* NAVIGATION */
@@ -148,7 +147,7 @@
   
   
  
-  
+
   /* HEADER */
   .header {
     padding: 0 4rem;
@@ -210,4 +209,142 @@
     transform: scale(1.07, 1.05) skewX(-15deg);
     background-image: var(--gradient-primary);
   }
- 
+ /* Weather Section */
+.section--weather {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Grid for cards: 3 per row, 2 rows for 6 cards */
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* Weather Card - Taller playing card style */
+.weather-card {
+  background-color: #ffffff;          /* White background */
+  color: #333;                        /* Dark text */
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: 0.3s;
+  height: 300px;                       /* Taller like a playing card */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* when hover on the card it animate */
+.weather-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Card text styling */
+.weather-city {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.weather-temp {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.weather-desc {
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+/* RESPONSIVE: 2 cards per row for tablets */
+@media (max-width: 900px) {
+  .weather-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* RESPONSIVE: 1 card per row for mobile */
+@media (max-width: 500px) {
+  .weather-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Weather Card Animations */
+
+/* Sun */
+.weather-sun {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #FFD700 60%, #FFA500 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  animation: sunMove 6s linear infinite alternate;
+  z-index: 2;
+}
+
+@keyframes sunMove {
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(30px) translateY(-10px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+/* Cloud */
+.weather-cloud {
+  width: 80px;
+  height: 50px;
+  background: #eee;
+  border-radius: 40px;
+  position: absolute;
+  top: 20px;
+  animation: cloudMove 8s linear infinite;
+}
+
+.weather-cloud::before,
+.weather-cloud::after {
+  content: '';
+  position: absolute;
+  background: #eee;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  top: -25px;
+}
+
+.weather-cloud::before { left: 10px; }
+.weather-cloud::after { right: 10px; }
+
+@keyframes cloudMove {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(15px); }
+  100% { transform: translateX(0); }
+}
+
+/* Rain */
+.weather-rain {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: #00f;
+  bottom: 0;
+  left: 50%;
+  animation: rainFall 0.5s linear infinite;
+}
+
+@keyframes rainFall {
+  0% { transform: translateY(0); opacity: 0.5; }
+  100% { transform: translateY(20px); opacity: 0; }
+}
+
+/* Card Relative Container */
+.weather-card {
+  position: relative; /* Needed for absolute animations inside */
+  overflow: hidden;   /* Prevent icons from spilling out */
+}
