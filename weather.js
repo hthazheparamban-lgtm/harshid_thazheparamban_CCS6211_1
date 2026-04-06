@@ -31,7 +31,7 @@ const weatherMap = {
   80: { desc: 'Showers', video: 'rain.mp4' },
   81: { desc: 'Showers', video: 'rain.mp4' },
   82: { desc: 'Thunderstorm', video: 'rain.mp4' },
-  71: { desc: 'Snow', video: 'snow.mp4' }, // Keep only one snowy type
+  71: { desc: 'Snow', video: 'snow.mp4' }, 
 };
 
 // Fetch weather for each card and update
@@ -57,7 +57,6 @@ weatherCards.forEach(({ card, lat, lon }) => {
     })
     .catch(err => console.error('Weather API error:', err));
 });
-// Lazy load climate videos
 // Lazy load all videos (weather + climate)
 const lazyVideos = document.querySelectorAll('.lazy-video, .lazy-climate');
 
