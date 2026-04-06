@@ -57,26 +57,33 @@ weatherCards.forEach(({ card, lat, lon }) => {
     })
     .catch(err => console.error('Weather API error:', err));
 });
-document.addEventListener("DOMContentLoaded", function() {
-  const lazyClimateElements = document.querySelectorAll(".lazy-climate");
+// Lazy load climate videos
+// Lazy load all videos (weather + climate)
+const lazyVideos = document.querySelectorAll('.lazy-video, .lazy-climate');
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
+const videoObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const video = entry.target;
+      const src = video.dataset.src;
 
-        if (el.tagName === "IMG" || el.tagName === "VIDEO") {
-          el.src = el.dataset.src;        // set the real src
-          el.classList.add("loaded");     // add fade-in effect
-
-          // If video, autoplay
-          if(el.tagName === "VIDEO") el.play();
-        }
-
-        observer.unobserve(el);           // stop observing once loaded
+      if (src) {
+        video.src = src;
+        video.load();
+        video.play().catch(() => {}); // auto-play might be blocked
+        video.classList.add('loaded');
       }
-    });
-  }, { threshold: 0.1 });
 
-  lazyClimateElements.forEach(el => observer.observe(el));
+      // Fade in card
+      const card = video.closest('.weather-card, .climate-card');
+      if (card) card.classList.add('show');
+
+      observer.unobserve(video);
+    }
+  });
+}, {
+  root: null,
+  threshold: 0.25
 });
+
+lazyVideos.forEach(video => videoObserver.observe(video));

@@ -6,10 +6,11 @@
   <title>Weather Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="weather.css" />
+  <link href="weather.css" rel="stylesheet">
   <script defer src="weather.js"></script>
 </head>
 <body>
+  <!-- HEADER -->
   <header class="header">
     <nav class="nav">
       <div class="nav__logo">Weather App</div>
@@ -26,16 +27,16 @@
     </div>
   </header>
 
+  <!-- WEATHER SECTION -->
   <section class="section section--weather" id="weather-section">
     <div class="section__title">
       <h2 class="section__description">Weather Overview</h2>
       <h3 class="section__header">Live weather from different regions</h3>
     </div>
-
     <div class="weather-grid">
-      <!-- New York -->
+      <!-- Each card -->
       <div class="weather-card weather-card--ny">
-        <video class="weather-video" autoplay muted loop playsinline></video>
+        <video class="weather-video lazy-video" muted loop playsinline data-src="videos/ny.mp4"></video>
         <div class="weather-info">
           <h4 class="weather-city">New York</h4>
           <p class="weather-temp">-- °C</p>
@@ -43,9 +44,8 @@
         </div>
       </div>
 
-      <!-- London -->
       <div class="weather-card weather-card--london">
-        <video class="weather-video" autoplay muted loop playsinline></video>
+        <video class="weather-video lazy-video" muted loop playsinline data-src="videos/london.mp4"></video>
         <div class="weather-info">
           <h4 class="weather-city">London</h4>
           <p class="weather-temp">-- °C</p>
@@ -53,9 +53,8 @@
         </div>
       </div>
 
-      <!-- Tokyo -->
       <div class="weather-card weather-card--tokyo">
-        <video class="weather-video" autoplay muted loop playsinline></video>
+        <video class="weather-video lazy-video" muted loop playsinline data-src="videos/tokyo.mp4"></video>
         <div class="weather-info">
           <h4 class="weather-city">Tokyo</h4>
           <p class="weather-temp">-- °C</p>
@@ -63,9 +62,8 @@
         </div>
       </div>
 
-      <!-- Paris -->
       <div class="weather-card weather-card--paris">
-        <video class="weather-video" autoplay muted loop playsinline></video>
+        <video class="weather-video lazy-video" muted loop playsinline data-src="videos/paris.mp4"></video>
         <div class="weather-info">
           <h4 class="weather-city">Paris</h4>
           <p class="weather-temp">-- °C</p>
@@ -73,9 +71,8 @@
         </div>
       </div>
 
-      <!-- Sydney -->
       <div class="weather-card weather-card--sydney">
-        <video class="weather-video" autoplay muted loop playsinline></video>
+        <video class="weather-video lazy-video" muted loop playsinline data-src="videos/sydney.mp4"></video>
         <div class="weather-info">
           <h4 class="weather-city">Sydney</h4>
           <p class="weather-temp">-- °C</p>
@@ -83,9 +80,8 @@
         </div>
       </div>
 
-      <!-- Cairo -->
       <div class="weather-card weather-card--cairo">
-        <video class="weather-video" autoplay muted loop playsinline></video>
+        <video class="weather-video lazy-video" muted loop playsinline data-src="videos/cairo.mp4"></video>
         <div class="weather-info">
           <h4 class="weather-city">Cairo</h4>
           <p class="weather-temp">-- °C</p>
@@ -95,59 +91,54 @@
     </div>
   </section>
 
+  <!-- CLIMATE SECTION -->
   <section class="section section--climate" id="climate-section">
   <div class="section__title">
     <h2 class="section__description">Climate Zones</h2>
     <h3 class="section__header">Explore the main climate zones around the world</h3>
   </div>
 
- <div class="climate-grid">
+  <div class="climate-grid">
+    <!-- Tropical -->
+    <div class="climate-card climate-card--tropical">
+      <video class="climate-video lazy-climate" muted loop playsinline data-src="videos/tropical.mp4" poster="videos/tropical-poster.jpg"></video>
+      <div class="climate-content">
+        <h3 class="climate-title">Tropical</h3>
+        <p class="climate-desc">Hot and humid all year with frequent rainfall.</p>
+      </div>
+    </div>
 
-  <!-- Tropical -->
-  <div class="climate-card climate-card--tropical">
-    <video class="climate-video" autoplay muted loop playsinline>
-      <source src="videos/tropical.mp4" type="video/mp4">
-    </video>
-    <div class="climate-content">
-      <h3 class="climate-title">Tropical</h3>
-      <p class="climate-desc">Hot and humid all year with frequent rainfall.</p>
+    <!-- Temperate -->
+    <div class="climate-card climate-card--temperate">
+      <video class="climate-video lazy-climate" muted loop playsinline data-src="videos/temperate.mp4" poster="videos/temperate-poster.jpg"></video>
+      <div class="climate-content">
+        <h3 class="climate-title">Temperate</h3>
+        <p class="climate-desc">Moderate temperatures with distinct seasons. Common in mid-latitudes.</p>
+      </div>
+    </div>
+
+    <!-- Arid -->
+    <div class="climate-card climate-card--arid">
+      <video class="climate-video lazy-climate" muted loop playsinline data-src="videos/arid.mp4" poster="videos/arid-poster.jpg"></video>
+      <div class="climate-content">
+        <h3 class="climate-title">Arid</h3>
+        <p class="climate-desc">Dry regions with very low rainfall. Includes deserts and semi-deserts.</p>
+      </div>
+    </div>
+
+    <!-- Polar -->
+    <div class="climate-card climate-card--polar">
+      <video class="climate-video lazy-climate" muted loop playsinline data-src="videos/polar.mp4" poster="videos/polar-poster.jpg"></video>
+      <div class="climate-content">
+        <h3 class="climate-title">Polar</h3>
+        <p class="climate-desc">Extremely cold with ice and snow cover most of the year. Found near poles.</p>
+      </div>
     </div>
   </div>
-
-  <!-- Temperate -->
-  <div class="climate-card climate-card--temperate">
-    <video class="climate-video" autoplay muted loop playsinline>
-      <source src="videos/temperate.mp4" type="video/mp4">
-    </video>
-    <div class="climate-content">
-      <h3 class="climate-title">Temperate</h3>
-      <p class="climate-desc">Moderate temperatures with distinct seasons. Common in mid-latitudes.</p>
-    </div>
-  </div>
-
-  <!-- Arid -->
-  <div class="climate-card climate-card--arid">
-    <video class="climate-video" autoplay muted loop playsinline>
-      <source src="videos/arid.mp4" type="video/mp4">
-    </video>
-    <div class="climate-content">
-      <h3 class="climate-title">Arid</h3>
-      <p class="climate-desc">Dry regions with very low rainfall. Includes deserts and semi-deserts.</p>
-    </div>
-  </div>
-
-  <!-- Polar -->
-  <div class="climate-card climate-card--polar">
-    <video class="climate-video" autoplay muted loop playsinline>
-      <source src="videos/polar.mp4" type="video/mp4">
-    </video>
-    <div class="climate-content">
-      <h3 class="climate-title">Polar</h3>
-      <p class="climate-desc">Extremely cold with ice and snow cover most of the year. Found near poles.</p>
-    </div>
-  </div>
-
-</div>
 </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Harshid Thazheparamban. All rights reserved.</p>
+  </footer>
 </body>
 </html>

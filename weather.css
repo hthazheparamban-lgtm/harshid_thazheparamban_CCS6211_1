@@ -458,3 +458,56 @@ h4 {
   opacity: 1;
   filter: blur(0);
 }
+/* FOOTER */
+.footer {
+  background-color: #051137;
+  color: #fff;
+  padding: 1rem 1rem;
+  text-align: center;
+  font-family: 'Abel', sans-serif;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+  font-size: 1.6rem;
+  color: white;
+}
+
+
+.footer a:hover {
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer {
+    padding: 2rem 1rem;
+    font-size: 1.4rem;
+  }
+}
+/* Lazy loading base */
+.lazy-video {
+  opacity: 0;
+  transform: scale(1.05); /* slight zoom for smooth effect */
+  filter: blur(8px);
+  transition: opacity 0.6s ease, filter 0.6s ease, transform 0.6s ease;
+}
+
+/* When loaded */
+.lazy-video.loaded {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+.climate-card,
+.weather-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.climate-card.show,
+.weather-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
