@@ -3,16 +3,12 @@
 
 :root {
   --color-primary: #4c6bc7;
-  --color-secondary: #03ffe6;
-  --color-tertiary: #ffa856;
+ 
   --color-primary-darker: #1862b1;
-  --color-secondary-darker: #09b5b8;
-  --color-tertiary-darker: #be670a;
   --color-primary-opacity: #5e80c53a;
-  --color-secondary-opacity: #03a7ff31;
-  --color-tertiary-opacity: #9010172d;
+
   --gradient-primary: linear-gradient(to top left, #92c6ff, #293fad);
-  --gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
+
 }
 
 * {
@@ -112,12 +108,6 @@ img {
   transition: filter 0.5s;
 }
 
-/* lazy loading */
-.lazy-img {
-  filter: blur(10px);
-  transition: filter 0.3s;
-}
-
 /* NAVIGATION */
 .nav {
   display: flex;
@@ -142,12 +132,14 @@ img {
 }
 
 /* HEADER */
+
 .header {
   padding: 0 4rem;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .header__title {
@@ -160,6 +152,7 @@ img {
   justify-content: center;
   align-items: start;
   justify-items: start;
+  text-align: left;
 }
 
 h1 {
@@ -173,12 +166,14 @@ h4 {
 }
 
 .header__img {
+  margin-top: 40px;
   width: 100%;
-  height: 250px;
+  height: 300px;
   grid-column: 2 / 3;
   grid-row: 1 / span 4;
   transform: translateY(-6rem);
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .highlight {
@@ -199,6 +194,139 @@ h4 {
   background-image: var(--gradient-primary);
 }
 
+/* ===== TABLET ===== */
+
+
+@media (max-width: 1024px) {
+  /* Header adjustments */
+  .header__title {
+    grid-template-columns: 1fr 1fr; /* reduce columns */
+    row-gap: 2rem;
+  }
+  .header__title h1 {
+    font-size: 3rem;
+    line-height: 1.3;
+  }
+  .header__title h4 {
+    font-size: 1.5rem;
+  }
+  .header__img {
+    width: 80%;
+    height: auto;
+    transform: translateY(-3rem);
+  }
+
+  /* Weather grid */
+  .weather-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    gap: 15px;
+  }
+
+  /* Climate grid */
+  .climate-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    gap: 15px;
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  /* Center nav logo */
+  .nav {
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  /* Header layout */
+  .header {
+    padding: 2rem 1rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    
+  }
+
+
+ 
+  .nav__logo {
+    order: 1;
+    font-size: 1.5rem;
+  }
+  .header__title h1 {
+    order: 2;
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+  .header__img {
+    order: 3;
+    width: 90%;
+    height: auto;
+    transform: translateY(0);
+    border-radius: 10px;
+  }
+  .header__title h1{
+    font-size: 3rem;
+  }
+  .header__title h4 {
+    order: 4;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+  }
+  .header__title button {
+    order: 5;
+    font-size: 1.4rem;
+    padding: 1rem 3rem;
+  }
+
+  /* Weather section */
+  .weather-grid {
+    grid-template-columns: 1fr; /* single column */
+    gap: 10px;
+    padding: 0 10px;
+    
+  }
+  .weather-card {
+    height: 100px;
+  }
+  .weather-city {
+    font-size: 1.8rem;
+  }
+  .weather-temp {
+    font-size: 2.5rem;
+  }
+  .weather-desc {
+    font-size: 1.5rem;
+  }
+
+  /* Climate section */
+  .climate-grid {
+    grid-template-columns: 1fr; /* single column */
+    gap: 10px;
+    padding: 0 10px;
+  }
+  .climate-card {
+    padding: 1.5rem 1rem;
+    min-height: auto;
+  }
+  .climate-title {
+    font-size: 2rem;
+  }
+  .climate-desc {
+    font-size: 1.3rem;
+  }
+}
+
 /* WEATHER SECTION */
 .section--weather {
   padding: 4rem 2rem;
@@ -209,7 +337,6 @@ h4 {
   font-size: 1.8rem;
   font-weight: 800;
   text-transform: uppercase;
-  
   margin-bottom: 1rem;
 }
 
@@ -221,7 +348,7 @@ h4 {
 /* WEATHER GRID */
 .weather-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row by default */
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
@@ -238,9 +365,9 @@ h4 {
   justify-content: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.25);
   transition: transform 0.3s, box-shadow 0.3s;
-  background: #4c6bc7; /* fallback */
+  background: #4c6bc7;
   color: #fff;
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .weather-card:hover {
@@ -248,19 +375,15 @@ h4 {
   box-shadow: 0 14px 30px rgba(0,0,0,0.35);
 }
 
-/* Video background */
+/* VIDEO BACKGROUND */
 .weather-video {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   object-fit: cover;
   z-index: 0;
-
 }
 
-/* WEATHER INFO overlay */
 /* WEATHER INFO overlay */
 .weather-info {
   position: relative;
@@ -268,51 +391,63 @@ h4 {
   text-align: center;
   margin-top: 20px;
   pointer-events: none;
-  color: #fff; /* <-- all text inside will be white */
+  color: #fff;
 }
 
-/* Individual elements (optional, overrides) */
 .weather-city {
-    font-family: "Abel", sans-serif;
+  font-family: "Abel", sans-serif;
   font-size: 2.3rem;
   font-weight: 300;
   margin-bottom: 0.5rem;
-  /* color: #fff;  <-- optional, already inherited */
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 .weather-temp {
   font-size: 6rem;
   font-weight: 300;
-  margin-bottom: 0.1rem;
- color: #fff; 
-   font-family: "Abel", sans-serif;
+  color: #fff;
+  font-family: "Abel", sans-serif;
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
 .weather-desc {
   font-size: 1.8rem;
   font-weight: 300;
-   color: #fff; 
+  color: #fff;
   text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
-/* Responsive */
+/* ===== TABLET ===== */
 @media (max-width: 1024px) {
   .weather-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row on tablets */
     gap: 15px;
     padding: 0 20px;
   }
+  .weather-card { height: 220px; }
 }
 
-/* Mobile (small screens) */
+/* ===== MOBILE ===== */
 @media (max-width: 600px) {
   .weather-grid {
-    grid-template-columns: 1fr; /* 1 card per row */
-    gap: 10px;
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
+    gap: 15px;
     padding: 0 10px;
   }
+  .weather-card {
+    width: 100%;
+    height: auto; /* adjust height automatically */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .weather-city { font-size: 2rem; }
+  .weather-temp { font-size: 4rem; }
+  .weather-desc { font-size: 1.5rem; }
+  .weather-video { height: 220px; }
 }
 /* CLIMATE ZONES SECTION */
 .climate-section {
@@ -436,16 +571,37 @@ h4 {
 }
 
 /* MOBILE  FOR CLIMATE GRID */
+
 @media (max-width: 600px) {
   .climate-grid {
-    grid-template-columns: 1fr; /* single column for mobile */
-    gap: 10px;
-    padding: 0 10px; /* optional padding */
+    grid-template-columns: 1fr; /* 1 card per row */
+    gap: 15px;                  /* spacing between cards */
+    padding: 0 10px;            /* small side padding */
+    justify-items: center;      /* center cards horizontally */
   }
 
   .climate-card {
-    padding: 1.5rem 1rem; /* reduce card padding for mobile */
-    min-height: auto;      /* allow height to adjust */
+    width: 100%;                /* full width of grid */
+    padding: 2rem 1.5rem;
+    min-height: auto;           /* adjusts height based on content */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;        /* center content horizontally */
+    text-align: center;        
+    color: #fff;               
+  }
+
+  .climate-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;                
+  }
+
+  .climate-desc {
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #fff;              
   }
 }
 .lazy-climate {
@@ -460,7 +616,7 @@ h4 {
 }
 /* FOOTER */
 .footer {
-  background-color: #051137;
+  background-color: rgb(1, 1, 93);
   color: #fff;
   padding: 1rem 1rem;
   text-align: center;
